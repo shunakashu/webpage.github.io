@@ -76,8 +76,8 @@ body {
 /*リセット*/
 figure {margin: 0;}
 dd {margin: 0;}
-nav {width: 20%; 
-	 padding:0;
+nav {width: 15%; 
+	 padding:10px;
 	 align-items: center;
 	}
 

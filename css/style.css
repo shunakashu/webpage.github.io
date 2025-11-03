@@ -76,7 +76,10 @@ body {
 /*リセット*/
 figure {margin: 0;}
 dd {margin: 0;}
-nav {width: 20%; padding:0;}
+nav {width: 20%; 
+	 padding:0;
+	 align-items: center;
+	}
 
 /*table全般の設定*/
 table {border-collapse:collapse;}

@@ -76,7 +76,7 @@ body {
 /*リセット*/
 figure {margin: 0;}
 dd {margin: 0;}
-nav {margin: 0;padding: 0;}
+nav {width: 50%; padding: 0;}
 
 /*table全般の設定*/
 table {border-collapse:collapse;}
@@ -166,6 +166,16 @@ body:not(.home) #logo img {
 	height: 50px;	/*ロゴの高さ。ハンバーガーメニューの場所がずれないように、headerの高さと、ロゴの高さを固定しています。*/
 }
 
+nav ul{
+    display: flex;
+	list-style-type: none;
+    justify-content: space-around;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #000;
+}
 
 /*動画
 ---------------------------------------------------------------------------*/

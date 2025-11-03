@@ -76,7 +76,7 @@ body {
 /*リセット*/
 figure {margin: 0;}
 dd {margin: 0;}
-nav {width: 50%; padding: 0;}
+nav {width: 10%; padding: 0;}
 
 /*table全般の設定*/
 table {border-collapse:collapse;}

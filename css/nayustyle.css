@@ -11,19 +11,19 @@
 
 h1 {
   font-size: 28px;
-  background-color: #000000;
+  background-color: lightblue;
   font-weight: bold;
-    color: #ffffff
+    color: #000000
 }
 
 h2 {
   font-size: 20px;
-    color: #ff7800
+    color: blue
 }
 
 h3 {
   font-size: 16px;
-    color: #ff7800
+    color: blue
 }
 
 body {
@@ -48,25 +48,19 @@ body {
     color: #ff0000;
 }
 
-.c-btn.reverse:hover {
+.btn.reverse:hover {
   background: #fff;
   color: #ff701e;
 }
 
 a:link {
-3
     color: #0033ff; /* 未訪問のリンク色 */
-4
     text-decoration: none;  /* アンダーライン無し */
-5
 }
 
 a:visited {
-3
     color: #9900ff; /* 訪問済みのリンク色 */
-4
     text-decoration: none; /* アンダーライン無し */
-5
 }
 
 

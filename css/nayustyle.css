@@ -10,8 +10,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
 h1 {
-  font-size: 24px;
+  font-size: 28px;
+  background-color: #000000;
   font-weight: bold;
+    color: #ffffff
+}
+
+h2 {
+  font-size: 20px;
+    color: #ff7800
+}
+
+h3 {
+  font-size: 16px;
     color: #ff7800
 }
 
@@ -22,5 +33,32 @@ h1 {
   text-decoration: none;
   color: white;
 }
-
 /*color指定: rgb(a,b,c,), rgba(a,b,c,o). o: opacity. */
+
+
+.nav-list a:hover {
+    color: #ff0000;
+}
+
+.c-btn.reverse:hover {
+  background: #fff;
+  color: #ff701e;
+}
+
+a:link {
+3
+    color: #0033ff; /* 未訪問のリンク色 */
+4
+    text-decoration: none;  /* アンダーライン無し */
+5
+}
+
+a:visited {
+3
+    color: #9900ff; /* 訪問済みのリンク色 */
+4
+    text-decoration: none; /* アンダーライン無し */
+5
+}
+
+

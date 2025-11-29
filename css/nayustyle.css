@@ -9,6 +9,12 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+    color: #ff7800
+}
+
 .btn {
   border-radius: 5px;
   background-color: lightblue;
@@ -16,3 +22,5 @@
   text-decoration: none;
   color: white;
 }
+
+/*color指定: rgb(a,b,c,), rgba(a,b,c,o). o: opacity. */

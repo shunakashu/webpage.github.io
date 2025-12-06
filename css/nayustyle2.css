@@ -1,0 +1,208 @@
+@charset "UTF-8";
+
+/* =========================================
+   ベーススタイル (全体設定)
+   ========================================= */
+:root {
+    --primary-color: #2c3e50;    /* 落ち着いた濃紺（文字色） */
+    --accent-color: #3498db;     /* 青（リンクやアクセント） */
+    --bg-color: #f9f9f9;         /* 背景色（真っ白より目に優しい） */
+    --surface-color: #ffffff;    /* コンテンツエリアの背景 */
+    --text-color: #333333;       /* 通常のテキスト色 */
+    --font-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+    font-family: var(--font-base);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.8; /* 行間を広げて読みやすく */
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased; /* 文字を滑らかに */
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #1d6fa5;
+    text-decoration: underline;
+}
+
+/* =========================================
+   レイアウトコンテナ
+   ========================================= */
+header, #contents, footer {
+    max-width: 800px; /* 読みやすい幅に制限 */
+    margin: 0 auto;   /* 中央寄せ */
+    padding: 0 20px;
+}
+
+/* =========================================
+   ヘッダー (Header)
+   ========================================= */
+header {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+}
+
+header p {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0;
+}
+
+/* ナビゲーション (言語ボタン配置) */
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* ボタン間の隙間 */
+}
+
+/* =========================================
+   ★ アニメーション付きボタン (.btn)
+   ========================================= */
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #fff;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 50px; /* 丸みのある形状 */
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-decoration: none !important; /* 下線を消す */
+    
+    /* アニメーション設定 */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* 初期の薄い影 */
+}
+
+/* ホバー時の変化 */
+.btn:hover {
+    background-color: var(--primary-color); /* 背景色変化 */
+    color: #fff;                            /* 文字色変化 */
+    transform: translateY(-3px);            /* 少し上に浮き上がる */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* 影を濃く広げる */
+}
+
+/* =========================================
+   メインコンテンツ (Main)
+   ========================================= */
+#contents {
+    background-color: var(--surface-color);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    margin-bottom: 60px;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+/* セクション見出し (About me, CV, etc.) */
+h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid #eee; /* 下線ですっきり区切る */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* 見出しのアクセント装飾（左端の青い線） */
+h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+section p {
+    margin-bottom: 10px;
+}
+
+/* リストのような見栄えにするための調整 */
+section p a {
+    font-weight: 500;
+}
+
+/* =========================================
+   フッター (Footer)
+   ========================================= */
+footer {
+    text-align: center;
+    padding-bottom: 40px;
+    color: #888;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   その他の要素 (PageTop / Menu)
+   ========================================= */
+
+/* ページトップへ戻るボタン */
+.pagetop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.pagetop a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.pagetop a:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+/* ハンバーガーメニューとQiita/Noteリンクの簡易整形 
+   (JavaScriptの動作を邪魔しない程度の見た目) */
+#menubar {
+    display: none; /* JSで制御される前提ですが、初期状態として */
+}
+
+/* モバイル対応（画面幅が狭い時） */
+@media (max-width: 600px) {
+    header, #contents, footer {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    #contents {
+        padding: 20px; /* スマホでは内側の余白を減らす */
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+}

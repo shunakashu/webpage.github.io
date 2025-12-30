@@ -1,25 +1,24 @@
 @charset "UTF-8";
 
 /* =========================================
-   ベーススタイル (全体設定)
+   ベーススタイル
    ========================================= */
 :root {
-    --primary-color: #2c3e50;    /* 落ち着いた濃紺（文字色） */
-    --accent-color: #3498db;     /* 青（リンクやアクセント） */
-    --bg-color: #f9f9f9;         /* 背景色（真っ白より目に優しい） */
-    --surface-color: #ffffff;    /* コンテンツエリアの背景 */
-    --text-color: #333333;       /* 通常のテキスト色 */
-    --font-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --bg-color: #f9f9f9;
+    --surface-color: #ffffff;
+    --text-color: #333333;
+    --font-base: "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
     font-family: var(--font-base);
     color: var(--text-color);
     background-color: var(--bg-color);
-    line-height: 1.8; /* 行間を広げて読みやすく */
+    line-height: 1.8;
     margin: 0;
     padding: 0;
-    -webkit-font-smoothing: antialiased; /* 文字を滑らかに */
 }
 
 a {
@@ -29,25 +28,19 @@ a {
 }
 
 a:hover {
-    color: #1d6fa5;
     text-decoration: underline;
 }
 
 /* =========================================
-   レイアウトコンテナ
-   ========================================= */
-header, #contents, footer {
-    max-width: 800px; /* 読みやすい幅に制限 */
-    margin: 0 auto;   /* 中央寄せ */
-    padding: 0 20px;
-}
-
-/* =========================================
-   ヘッダー (Header)
+   ヘッダー (Header) - 右上配置設定を追加
    ========================================= */
 header {
-    padding-top: 60px;
-    padding-bottom: 40px;
+    /* 子要素(nav)を絶対配置するための基準点にします */
+    position: relative; 
+    
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px 40px;
     text-align: center;
 }
 
@@ -64,69 +57,96 @@ header p {
     margin-top: 0;
 }
 
-/* ナビゲーション (言語ボタン配置) */
+/* ナビゲーション（ボタンエリア） */
 header nav ul {
     list-style: none;
     padding: 0;
-    margin: 30px 0 0;
+    margin: 0;
     display: flex;
     justify-content: center;
-    gap: 20px; /* ボタン間の隙間 */
+    gap: 10px; /* ボタン同士の間隔も少し狭く */
+}
+
+/* ★ PC画面（幅600px以上）でのみ「右上」に固定する設定 */
+@media (min-width: 600px) {
+    header nav {
+        position: absolute; /* 絶対配置 */
+        top: 20px;          /* 上端からの距離 */
+        right: 20px;        /* 右端からの距離 */
+    }
+}
+
+/* スマホ画面（幅600px未満）ではタイトルの下に配置（重なり防止） */
+@media (max-width: 599px) {
+    header nav {
+        margin-top: 20px; /* タイトルとの隙間 */
+    }
 }
 
 /* =========================================
-   ★ アニメーション付きボタン (.btn)
+   ★ アニメーション付きボタン (.btn) - 小さく修正
    ========================================= */
 .btn {
     display: inline-block;
-    padding: 10px 30px;
+    
+    /* サイズを小さく調整 */
+    padding: 4px 16px;    /* 内側の余白を減らす */
+    font-size: 0.8rem;    /* 文字サイズを小さく */
+    
     background-color: #fff;
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
-    border-radius: 50px; /* 丸みのある形状 */
+    border-radius: 50px;
     font-weight: bold;
-    font-size: 0.9rem;
-    text-decoration: none !important; /* 下線を消す */
+    text-decoration: none !important;
     
     /* アニメーション設定 */
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* 初期の薄い影 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* ホバー時の変化 */
+/* ホバー時の変化（維持） */
 .btn:hover {
-    background-color: var(--primary-color); /* 背景色変化 */
-    color: #fff;                            /* 文字色変化 */
-    transform: translateY(-3px);            /* 少し上に浮き上がる */
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* 影を濃く広げる */
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px); /* 浮き上がり幅も少し控えめに */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* =========================================
    メインコンテンツ (Main)
    ========================================= */
 #contents {
-    background-color: var(--surface-color);
+    max-width: 800px;
+    margin: 0 auto 60px;
     padding: 40px;
+    background-color: var(--surface-color);
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-    margin-bottom: 60px;
 }
 
-section {
-    margin-bottom: 50px;
+/* スマホ対応 */
+@media (max-width: 600px) {
+    header, #contents {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    #contents {
+        padding: 20px;
+    }
 }
 
-/* セクション見出し (About me, CV, etc.) */
+section { margin-bottom: 50px; }
+
 h3 {
     font-size: 1.4rem;
     color: var(--primary-color);
-    border-bottom: 2px solid #eee; /* 下線ですっきり区切る */
+    border-bottom: 2px solid #eee;
     padding-bottom: 10px;
     margin-bottom: 20px;
     position: relative;
 }
 
-/* 見出しのアクセント装飾（左端の青い線） */
 h3::after {
     content: '';
     position: absolute;
@@ -137,36 +157,24 @@ h3::after {
     background-color: var(--accent-color);
 }
 
-section p {
-    margin-bottom: 10px;
-}
+section p { margin-bottom: 10px; }
+section p a { font-weight: 500; }
 
-/* リストのような見栄えにするための調整 */
-section p a {
-    font-weight: 500;
-}
-
-/* =========================================
-   フッター (Footer)
-   ========================================= */
 footer {
+    max-width: 800px;
+    margin: 0 auto;
     text-align: center;
     padding-bottom: 40px;
     color: #888;
     font-size: 0.85rem;
 }
 
-/* =========================================
-   その他の要素 (PageTop / Menu)
-   ========================================= */
-
-/* ページトップへ戻るボタン */
+/* ページトップボタンなど */
 .pagetop {
     position: fixed;
     bottom: 20px;
     right: 20px;
 }
-
 .pagetop a {
     display: block;
     width: 50px;
@@ -179,30 +187,6 @@ footer {
     opacity: 0.8;
     transition: opacity 0.3s;
 }
+.pagetop a:hover { opacity: 1; }
 
-.pagetop a:hover {
-    opacity: 1;
-    text-decoration: none;
-}
-
-/* ハンバーガーメニューとQiita/Noteリンクの簡易整形 
-   (JavaScriptの動作を邪魔しない程度の見た目) */
-#menubar {
-    display: none; /* JSで制御される前提ですが、初期状態として */
-}
-
-/* モバイル対応（画面幅が狭い時） */
-@media (max-width: 600px) {
-    header, #contents, footer {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    
-    #contents {
-        padding: 20px; /* スマホでは内側の余白を減らす */
-    }
-    
-    header h1 {
-        font-size: 1.5rem;
-    }
-}
+#menubar { display: none; }

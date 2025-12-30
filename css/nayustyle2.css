@@ -37,7 +37,7 @@ a:hover {
 header {
     /* 子要素(nav)を絶対配置するための基準点にします */
     position: relative; 
-    color: #D9EFF9;
+    background-color: #D9EFF9;
     max-width: 800px;
     margin: 0 auto;
     padding: 60px 20px 40px;

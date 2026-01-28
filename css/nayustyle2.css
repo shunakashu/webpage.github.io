@@ -105,9 +105,32 @@ header nav ul {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
+.btn2 {
+    display: inline-block;
+    
+    /* サイズを小さく調整 */
+    padding: 4px 16px;    /* 内側の余白を減らす */
+    font-size: 1.0rem;    /* 文字サイズを小さく */
+    
+    color: var(--primary-color);
+    border: 0.5px solid var(--primary-color);
+    border-radius: 50px;
+    text-decoration: none !important;
+    
+    /* アニメーション設定 */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
 /* ホバー時の変化（維持） */
 .btn:hover {
     background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px); /* 浮き上がり幅も少し控えめに */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn2:hover {
     color: #fff;
     transform: translateY(-2px); /* 浮き上がり幅も少し控えめに */
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
